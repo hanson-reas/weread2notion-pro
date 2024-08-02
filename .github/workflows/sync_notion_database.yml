@@ -19,4 +19,8 @@ jobs:
         python -m pip install --upgrade pip
         pip install notion-client
     - name: Run script
-      run: python your_script.py
+      run: python sync_notion.py
+      env:
+        NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
+        SOURCE_DATABASE_ID: ${{ secrets.SOURCE_DATABASE_ID }}
+        TARGET_DATABASE_ID: ${{ secrets.TARGET_DATABASE_ID }}
