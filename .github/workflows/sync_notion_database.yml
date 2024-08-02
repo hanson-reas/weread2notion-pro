@@ -28,4 +28,4 @@ jobs:
           pip install notion-client
       - name: Sync Notion Database
         run: |
-          python -u sync_notion.py
+          python -u scripts/wsync_notion.py
