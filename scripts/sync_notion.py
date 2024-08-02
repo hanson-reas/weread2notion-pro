@@ -1,16 +1,17 @@
+import os
 import requests
 import json
 import time
-from datetime import datetime
 from notion_client import Client
+from datetime import datetime
 
-# 配置 Notion API 密钥
-NOTION_TOKEN = "your_notion_token"
+# 从环境变量获取 Notion API 密钥
+NOTION_TOKEN = os.environ.get('NOTION_TOKEN')
 client = Client(auth=NOTION_TOKEN)
 
-# 源数据库和目标数据库的 ID
-SOURCE_DATABASE_ID = "your_source_database_id"
-TARGET_DATABASE_ID = "your_target_database_id"
+# 从环境变量获取源数据库和目标数据库的 ID
+SOURCE_DATABASE_ID = os.environ.get('SOURCE_DATABASE_ID')
+TARGET_DATABASE_ID = os.environ.get('TARGET_DATABASE_ID')
 
 def get_data_from_source_database():
     """
