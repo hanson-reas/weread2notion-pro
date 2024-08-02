@@ -1,6 +1,6 @@
 import argparse
 import os
-import requests
+import subprocess
 
 from notion_helper import NotionHelper
 from weread_api import WeReadApi
@@ -112,6 +112,11 @@ def append_blocks_to_notion(page_id, blocks, after, contents):
 
 
 if __name__ == "__main__":
+    try:
+        subprocess.run(["pip", "install", "requests"], check=True)
+    except subprocess.CalledProcessError as e:
+        print(f"安装 requests 模块时出错: {e}")
+
     parser = argparse.ArgumentParser()
     options = parser.parse_args()
     branch = os.getenv("REF").split("/")[-1]
